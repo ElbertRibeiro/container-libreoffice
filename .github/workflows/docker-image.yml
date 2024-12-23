@@ -19,11 +19,7 @@ jobs:
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       
     - name: Build Docker Image
-      run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/image-libreoffice:latest .
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/image-libreoffice:1.0.${{ github.run_number }} .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/image-libreoffice:1.0.${{ github.run_number }} .
 
     - name: Push Docker Image
-      run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/image-libreoffice:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/image-libreoffice:1.0.${{ github.run_number }} .
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/image-libreoffice:1.0.${{ github.run_number }} .
