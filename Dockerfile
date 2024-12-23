@@ -1,3 +1,3 @@
-FROM ubuntu
+FROM eclipse-temurin:17-jre-alpine
 
-RUN apt-get update && apt-get install openjdk-17-jre -y && apt-get install libreoffice -y
+RUN apk add --no-cache libreoffice
